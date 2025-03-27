@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMD</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="script" href="script.js">
+
+
+        <meta name="description" content="Lista de Comandos de Reparo e Otimização do Windows no cmd">
+        <meta name="keywords" content="cmd, Windows, w11, w10, w7, informática, reparo de sistema, powershell, hd travando, ssd lento, pc lento, travamentos">
+        <meta name="robots" content="index, follow"> <!-- Permite indexação -->
+        <meta name="author" content="Mayky Carvalho de Oliveira">
+        <meta name="language" content="pt-BR">
+        <meta name="revisit-after" content="7 days"> <!-- Sugere reindexação após 7 dias -->
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Language" content="pt-BR">
+
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+        <meta name="theme-color" content="#ffffff"> <!-- Cor para navegadores mobile -->
+        <meta name="format-detection" content="telephone=no"> <!-- Evita links automáticos para números de telefone -->
+
+        <link rel="manifest" href="manifest.json">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="mobile-web-app-capable" content="yes">
+
+</head>
+<body>
+    <header>Comandos de Reparo e Otimização do Windows no cmd</header>
+    <!--<div class="menu-container">
+        <nav class="menu">
+            <a href="#diagnostico">Diagnóstico</a>
+            <a href="#otimizacao">Otimização</a>
+            <a href="#limpeza">Limpeza</a>
+            <a href="#rede">Rede</a>
+            <a href="#impressoras">Impressoras</a>
+        </nav>
+    </div>-->
+    <div class="search-bar">
+        <input type="text" id="searchInput" onkeyup="searchCommands()" placeholder="Buscar comandos...">
+    </div>
+    <div class="container" id="commandContainer">
+
+
+                    <section id="diagnostico" class="section">
+                                <h2>Diagnóstico e Reparo do Sistema</h2>
+
+                                <p>Esses comandos ajudam a verificar e reparar problemas no Windows.</p>
+
+                                <p class="command-description">▶ Permite verificar e reparar erros no disco rígido do Windows. </p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('chkdsk /f /r')">Copiar</button>
+                                    <code>chkdsk /f /r</code>
+                                </div>
+<hr>
+                                
+                                <p class="command-description">▶ Desativar serviços problemáticos</p>
+                                <div class="command-box">
+                                    <code>net.exe stop "SysMain" <br> sc config "SysMain" start= disabled</code>
+                                </div>
+<hr>
+                                <p class="command-description">▶ Verifica e corrige erros no disco rígido, recuperando setores defeituosos.</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('sfc /scannow')">Copiar</button>
+                                    <code>sfc /scannow</code>
+                                </div>
+<hr>
+                                <p class="command-description">▶ Reparação mais profunda (DISM)</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('DISM /Online /Cleanup-Image /RestoreHealth')">Copiar</button>
+                                    <code>DISM /Online /Cleanup-Image /RestoreHealth</code>
+                                </div>
+<hr>  
+                                
+                                <p class="command-description">▶ Analisar processos consumindo disco</p>
+                                <div class="command-box">
+                                    <code>wmic process where "name='svchost.exe'" get processid,executablepath,commandline</code>
+                                </div>
+<hr> 
+                                
+                                <p class="command-description">▶ Repara a imagem do Windows, corrigindo arquivos danificados. Verifica e repara arquivos corrompidos do sistema.</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('DISM /Online /Cleanup-Image /RestoreHealth')">Copiar</button>
+                                    <code>DISM /Online /Cleanup-Image /RestoreHealth</code>
+                                </div>
+<hr>
+
+                                <p class="command-description">▶ Analisar processos consumindo disco</p>
+                                <div class="command-box">
+                                    <code>wmic process where "name='svchost.exe'" get processid,executablepath,commandline</code>
+                                </div>
+
+                                <hr>
+
+                                <p class="command-description">▶ Limpar arquivos temporários</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('del /q /f /s %temp%\*.*')">Copiar</button>
+                                    <code>del /q /f /s %temp%\*.*</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">▶ Desfragmentar disco (se for HDD)</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('defrag C: /U /V')">Copiar</button>
+                                    <code>defrag C: /U /V</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">▶ Verificar inicialização limpa</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('msconfig')">Copiar</button>
+                                    <code>msconfig</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">▶ Limpar cache DNS</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('ipconfig /flushdns')">Copiar</button>
+                                    <code>ipconfig /flushdns</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">▶ Verificar Uso da CPU, RAM e Disco (Performance Monitor)</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('perfmon /res')">Copiar</button>
+                                    <code>perfmon /res</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">▶ Verificar Velocidade do Barramento SATA (Se o SSD será bem aproveitado)</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('wmic diskdrive get Name, MediaType, InterfaceType')">Copiar</button>
+                                    <code>wmic diskdrive get Name, MediaType, InterfaceType</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">▶ Verificar Quantidade de RAM e Uso de Swap</p>
+                                <div class="command-box">
+                                    
+                                    <code>wmic memorychip get Capacity, Speed<br>
+                                        systeminfo | find "Available Physical Memory"</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">▶ Verificar Modelo da CPU e Núcleos</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('wmic cpu get Name, NumberOfCores, MaxClockSpeed')">Copiar</button>
+                                    <code>wmic cpu get Name, NumberOfCores, MaxClockSpeed</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">▶ Desativar a atualização do timestamp do último acesso ( último horário de acesso ) para(Last Access Time) para arquivos e diretórios no NTFS.</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('fsutil behavior set DisableLastAccess 1')">Copiar</button>
+                                    <code>fsutil behavior set DisableLastAccess 1</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">▶ Ajusta a quantidade de memória que o Windows aloca para a tabela de arquivos mestre ( MFT - Master File Table ) no sistema de arquivos NTFS .</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('fsutil behavior set MemoryUsage 2')">Copiar</button>
+                                    <code>fsutil behavior set MemoryUsage 2</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">▶ Gerenciamento de Memória Virtual (Swap File)</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('wmic pagefile list /format:list')">Copiar</button>
+                                    <code>wmic pagefile list /format:list</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">▶ Mostra o arquivo de paginação (swap) atual. Configura manualmente o tamanho do swap (ajuste os valores conforme sua RAM).
+                                    (Exemplo: 4096 MB mínimo e 8192 MB máximo para 8GB de RAM).</p>
+                                <div class="command-box">
+                                    
+                                    <code>wmic computersystem where name="%computername%" set AutomaticManagedPagefile=False<br>
+                                        wmic pagefileset set InitialSize=4096,MaximumSize=8192</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">▶ Limpeza Avançada (Temp, Cache, Thumbnails)</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('cleanmgr /sagerun:1')">Copiar</button>
+                                    <code>cleanmgr /sagerun:1</code>
+                                </div>
+                            
+                                <p class="command-description">▶ Executa a limpeza de disco automática (arquivos temporários, cache, etc.).</p>
+                                <div class="command-box">
+                                    <code>del /s /q %windir%\temp\*.*</code><br>
+                                    <code>del /s /q %windir%\Prefetch\*.*</code><br>
+                                    <code>del /s /q "%localappdata%\Temp\*.*"</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">▶ Limpa pastas temporárias manualmente (mais agressivo que o cleanmgr). Reconstroi o cache de thumbnails (útil se pastas estão lentas ao abrir).</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('ie4uinit.exe -show')">Copiar</button>
+                                    <code>ie4uinit.exe -show</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">▶ Desativar Serviços Desnecessários</p>
+                                <div class="command-box">
+                                    
+                                    <code>sc stop "DiagTrack"  <br>
+                                        sc config "DiagTrack" start= disabled</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">▶ Desativa o "Connected User Experiences and Telemetry" (serviço de telemetria do Windows que consome recursos).</p>
+                                <p class="description2">▶ Desativa a "Windows Search" (útil se você não usa busca no sistema, mas pode tornar pesquisas mais lentas).</p>
+                                <div class="command-box">
+                                    
+                                    <code>sc stop "WSearch"  <br>
+                                        sc config "WSearch" start= disabled</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">▶ Otimizar Energia (Para Máximo Desempenho)</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61')">Copiar</button>
+                                    <code>powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">▶ Analisar Processos e Inicialização. Lista processos usando +100MB de RAM (ajuste o número conforme necessário).</p>
+                                <div class="command-box">
+                            
+                                    <code>tasklist /svc | find "100"</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">▶ Verificar a versão do Windows via CMD</p>
+                                <div class="command-box">
+                                    
+                                    <code>systeminfo | find "OS Name"</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">▶ Criar a pasta GodMode na área de trabalho</p>
+                                <div class="command-box">
+                                    
+                                    <code>mkdir "%USERPROFILE%\Desktop\GodMode.{ED7BA470-8E54-465E-825C-99712043E01C}"
+                                    </code>
+                                </div>
+<hr>
+
+                                <p class="command-description">▶ Verificar e Reiniciar o Spooler de Impressão (Serviço Principal)
+                                    O Spooler é o serviço do Windows que gerencia trabalhos de impressão. Se ele travar, sua impressora para de funcionar.
+                                    Via CMD (como Administrador)<br> Para que serve?<br>
+
+                                    Para o serviço, limpa a fila de impressão e reinicia.
+                                    
+                                    Resolve travamentos, filas congestionadas e erros de "processando".</p>
+                                <div class="command-box">
+                                    
+                                    <code>net stop spooler<br>
+                                        del /Q /F %windir%\System32\spool\PRINTERS\*.*<br>
+                                        net start spooler</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">Reinstalar Drivers Corrompidos.
+                                    Drivers antigos ou corrompidos causam falhas de comunicação. Via CMD (desinstalar drivers problemáticos). <br>Abre a interface de remoção de drivers.
+
+                                    <br>Selecione a impressora com problemas e remova.
+                                    
+                                    <br>Reinstale o driver:
+                                    <br>Baixe o driver mais recente do site do fabricante.
+                                    
+                                    <br>Instale manualmente (Evite usar o driver genérico do Windows!).</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('printui /s /t2')">Copiar</button>
+                                    <code>printui /s /t2</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">Verificar conexão com a internet. Se houver timeouts, há problema na conexão.
+
+                                    Pressione Ctrl + C para parar.</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('ping 8.8.8.8 -t')">Copiar</button>
+                                    <code>ping 8.8.8.8 -t</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">Testar DNS (problemas ao acessar sites)</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('nslookup google.com')">Copiar</button>
+                                    <code>nslookup google.com</code>
+                                </div>
+                                <hr>
+                                
+                                <p class="command-description">Liberar e renovar IP (DHCP). Útil se você está sem internet ou com IP inválido (169.254.x.x).</p>
+                                <div class="command-box">
+                                    
+                                    <code>ipconfig /release<br>
+                                        ipconfig /renew
+                                        </code>
+                                </div>
+                                <hr>
+                                <p class="command-description">Limpar cache DNS. Resolve erros como "Site não encontrado" mesmo com internet.</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('ipconfig /flushdns')">Copiar</button>
+                                    <code>ipconfig /flushdns</code>
+                                </div>
+                                <hr>
+
+                                Resetar pilha TCP/IP (problemas graves de conexão)
+
+                                <p class="command-description"> </p>
+                                <div class="command-box">
+                                    
+                                    <code>netsh int ip reset
+                                        netsh winsock reset</code>
+                                </div>
+                                <p>Reinicia configurações de rede (reinicie o PC depois).</p>
+                                <hr>
+
+                                <p class="command-description">Desativar Limitação de Banda do Windows</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('gpedit.msc')">Copiar</button>
+                                    <code>gpedit.msc</code>
+                                </div>
+                                <p>Vá para:<br>
+                                    Configuração do Computador > Modelos Administrativos > Rede > Agendador de Pacotes QoS
+                                    <br>
+                                    Habilite "Limitar banda reservável" e defina como 0%.
+                                    <br>
+                                    (Se não tiver gpedit.msc, use este comando alternativo:)
+                                    
+                                    
+                                    <div class="command-box">
+                                        
+                                        <code>reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Psched" /v "NonBestEffortLimit" /t REG_DWORD /d 0 /f</code>
+                                    </div>
+<hr>
+
+                                <p class="command-description">Priorizar tráfego (para jogos e chamadas). Reduz latência, mas pode diminuir velocidade em downloads.</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('netsh int tcp set global autotuninglevel=restricted')">Copiar</button>
+                                    <code>netsh int tcp set global autotuninglevel=restricted</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">Desativar economia de energia no adaptador Wi-Fi. Evita quedas de conexão Wi-Fi.
+                                </p>
+                                <div class="command-box">
+                                    
+                                    <code>powercfg /setdcvalueindex SCHEME_CURRENT 19cbb8fa-5279-450e-9fac-8a3d5fedd0c1 12bbebe6-58d6-4636-95bb-3217ef867c1a 0
+                                        <br>powercfg /setactive SCHEME_CURRENT</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">Listar todas as conexões de rede. Verifique se o adaptador está "Conectado".</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('netsh interface show interface')">Copiar</button>
+                                    <code>netsh interface show interface</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">Verificar processos usando internet. Identifique programas consumindo banda (use Task Manager para fechar).</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('netstat -ano | findstr ESTABLISHED')">Copiar</button>
+                                    <code>netstat -ano | findstr ESTABLISHED</code>
+                                </div>
+                                <hr>
+
+                                <p class="command-description">Desativar IPv6 (se causar conflitos)</p>
+                                <div class="command-box">
+                                    <button class="copy-btn" onclick="copyToClipboard('Alguns roteadores têm problemas com IPv6.')">Copiar</button>
+                                    <code>netsh interface ipv6 set global state=disabled</code>
+                                </div>
+                                <hr>
+                                
+                                <p class="command-description">Teste de Velocidade</p>
+                                <div class="command-box">
+                                    
+                                    <code>curl --max-time 10 -o NUL "http://speedtest.london.linode.com/100MB-london.bin"</code>
+                                </div>
+
+                    </section>
+    </div>
+<footer>Este projeto foi desenvolvido por Mayky C. Oliveira</footer>
+</body>
+</html>
