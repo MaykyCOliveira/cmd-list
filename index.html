@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CMD</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="script" href="script.js">
+    
 
 
         <meta name="description" content="Lista de Comandos de Reparo e Otimização do Windows no cmd">
@@ -41,9 +41,9 @@
             <a href="#impressoras">Impressoras</a>
         </nav>
     </div>-->
-    <div class="search-bar">
+    <!--<div class="search-bar">
         <input type="text" id="searchInput" onkeyup="searchCommands()" placeholder="Buscar comandos...">
-    </div>
+    </div>-->
     <div class="container" id="commandContainer">
 
 
@@ -54,7 +54,6 @@
 
                                 <p class="command-description">▶ Permite verificar e reparar erros no disco rígido do Windows. </p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('chkdsk /f /r')">Copiar</button>
                                     <code>chkdsk /f /r</code>
                                 </div>
 <hr>
@@ -66,13 +65,11 @@
 <hr>
                                 <p class="command-description">▶ Verifica e corrige erros no disco rígido, recuperando setores defeituosos.</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('sfc /scannow')">Copiar</button>
                                     <code>sfc /scannow</code>
                                 </div>
 <hr>
                                 <p class="command-description">▶ Reparação mais profunda (DISM)</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('DISM /Online /Cleanup-Image /RestoreHealth')">Copiar</button>
                                     <code>DISM /Online /Cleanup-Image /RestoreHealth</code>
                                 </div>
 <hr>  
@@ -85,7 +82,6 @@
                                 
                                 <p class="command-description">▶ Repara a imagem do Windows, corrigindo arquivos danificados. Verifica e repara arquivos corrompidos do sistema.</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('DISM /Online /Cleanup-Image /RestoreHealth')">Copiar</button>
                                     <code>DISM /Online /Cleanup-Image /RestoreHealth</code>
                                 </div>
 <hr>
@@ -99,42 +95,36 @@
 
                                 <p class="command-description">▶ Limpar arquivos temporários</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('del /q /f /s %temp%\*.*')">Copiar</button>
                                     <code>del /q /f /s %temp%\*.*</code>
                                 </div>
                                 <hr>
 
                                 <p class="command-description">▶ Desfragmentar disco (se for HDD)</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('defrag C: /U /V')">Copiar</button>
                                     <code>defrag C: /U /V</code>
                                 </div>
                                 <hr>
 
                                 <p class="command-description">▶ Verificar inicialização limpa</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('msconfig')">Copiar</button>
                                     <code>msconfig</code>
                                 </div>
                                 <hr>
 
                                 <p class="command-description">▶ Limpar cache DNS</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('ipconfig /flushdns')">Copiar</button>
                                     <code>ipconfig /flushdns</code>
                                 </div>
                                 <hr>
 
                                 <p class="command-description">▶ Verificar Uso da CPU, RAM e Disco (Performance Monitor)</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('perfmon /res')">Copiar</button>
                                     <code>perfmon /res</code>
                                 </div>
                                 <hr>
 
                                 <p class="command-description">▶ Verificar Velocidade do Barramento SATA (Se o SSD será bem aproveitado)</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('wmic diskdrive get Name, MediaType, InterfaceType')">Copiar</button>
                                     <code>wmic diskdrive get Name, MediaType, InterfaceType</code>
                                 </div>
                                 <hr>
@@ -149,28 +139,24 @@
 
                                 <p class="command-description">▶ Verificar Modelo da CPU e Núcleos</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('wmic cpu get Name, NumberOfCores, MaxClockSpeed')">Copiar</button>
                                     <code>wmic cpu get Name, NumberOfCores, MaxClockSpeed</code>
                                 </div>
                                 <hr>
 
                                 <p class="command-description">▶ Desativar a atualização do timestamp do último acesso ( último horário de acesso ) para(Last Access Time) para arquivos e diretórios no NTFS.</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('fsutil behavior set DisableLastAccess 1')">Copiar</button>
                                     <code>fsutil behavior set DisableLastAccess 1</code>
                                 </div>
                                 <hr>
 
                                 <p class="command-description">▶ Ajusta a quantidade de memória que o Windows aloca para a tabela de arquivos mestre ( MFT - Master File Table ) no sistema de arquivos NTFS .</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('fsutil behavior set MemoryUsage 2')">Copiar</button>
                                     <code>fsutil behavior set MemoryUsage 2</code>
                                 </div>
                                 <hr>
 
                                 <p class="command-description">▶ Gerenciamento de Memória Virtual (Swap File)</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('wmic pagefile list /format:list')">Copiar</button>
                                     <code>wmic pagefile list /format:list</code>
                                 </div>
                                 <hr>
@@ -186,7 +172,6 @@
 
                                 <p class="command-description">▶ Limpeza Avançada (Temp, Cache, Thumbnails)</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('cleanmgr /sagerun:1')">Copiar</button>
                                     <code>cleanmgr /sagerun:1</code>
                                 </div>
                             
@@ -200,7 +185,6 @@
 
                                 <p class="command-description">▶ Limpa pastas temporárias manualmente (mais agressivo que o cleanmgr). Reconstroi o cache de thumbnails (útil se pastas estão lentas ao abrir).</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('ie4uinit.exe -show')">Copiar</button>
                                     <code>ie4uinit.exe -show</code>
                                 </div>
                                 <hr>
@@ -224,7 +208,6 @@
 
                                 <p class="command-description">▶ Otimizar Energia (Para Máximo Desempenho)</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61')">Copiar</button>
                                     <code>powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61</code>
                                 </div>
                                 <hr>
@@ -276,7 +259,6 @@
                                     
                                     <br>Instale manualmente (Evite usar o driver genérico do Windows!).</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('printui /s /t2')">Copiar</button>
                                     <code>printui /s /t2</code>
                                 </div>
                                 <hr>
@@ -285,14 +267,12 @@
 
                                     Pressione Ctrl + C para parar.</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('ping 8.8.8.8 -t')">Copiar</button>
                                     <code>ping 8.8.8.8 -t</code>
                                 </div>
                                 <hr>
 
                                 <p class="command-description">Testar DNS (problemas ao acessar sites)</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('nslookup google.com')">Copiar</button>
                                     <code>nslookup google.com</code>
                                 </div>
                                 <hr>
@@ -307,7 +287,6 @@
                                 <hr>
                                 <p class="command-description">Limpar cache DNS. Resolve erros como "Site não encontrado" mesmo com internet.</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('ipconfig /flushdns')">Copiar</button>
                                     <code>ipconfig /flushdns</code>
                                 </div>
                                 <hr>
@@ -325,7 +304,6 @@
 
                                 <p class="command-description">Desativar Limitação de Banda do Windows</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('gpedit.msc')">Copiar</button>
                                     <code>gpedit.msc</code>
                                 </div>
                                 <p>Vá para:<br>
@@ -344,7 +322,6 @@
 
                                 <p class="command-description">Priorizar tráfego (para jogos e chamadas). Reduz latência, mas pode diminuir velocidade em downloads.</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('netsh int tcp set global autotuninglevel=restricted')">Copiar</button>
                                     <code>netsh int tcp set global autotuninglevel=restricted</code>
                                 </div>
                                 <hr>
@@ -360,21 +337,18 @@
 
                                 <p class="command-description">Listar todas as conexões de rede. Verifique se o adaptador está "Conectado".</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('netsh interface show interface')">Copiar</button>
                                     <code>netsh interface show interface</code>
                                 </div>
                                 <hr>
 
                                 <p class="command-description">Verificar processos usando internet. Identifique programas consumindo banda (use Task Manager para fechar).</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('netstat -ano | findstr ESTABLISHED')">Copiar</button>
                                     <code>netstat -ano | findstr ESTABLISHED</code>
                                 </div>
                                 <hr>
 
                                 <p class="command-description">Desativar IPv6 (se causar conflitos)</p>
                                 <div class="command-box">
-                                    <button class="copy-btn" onclick="copyToClipboard('Alguns roteadores têm problemas com IPv6.')">Copiar</button>
                                     <code>netsh interface ipv6 set global state=disabled</code>
                                 </div>
                                 <hr>
@@ -388,5 +362,7 @@
                     </section>
     </div>
 <footer>Este projeto foi desenvolvido por Mayky C. Oliveira</footer>
+
+</script>
 </body>
 </html>
